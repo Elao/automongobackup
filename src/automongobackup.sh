@@ -40,6 +40,12 @@ EXTERNAL_CONFIG="/etc/sysconfig/automongobackup"	# centos style
 # Unnecessary if authentication is off
 # DBPASSWORD=""
 
+# Database name to backup a specific database
+DBNAME="prod_declic"
+
+# Collection name to backup a specific collection
+COLLECTIONNAME="widgets"
+
 # Host name (or IP address) of mongo server e.g localhost
 DBHOST="127.0.0.1"
 
@@ -83,13 +89,13 @@ LATEST="yes"
 LATESTLINK="yes"
 
 # Use oplog for point-in-time snapshotting.
-OPLOG="yes"
+OPLOG="no"
 
 # Enable and use journaling.
-JOURNAL="yes"
+JOURNAL="no"
 
 # Choose other Server if is Replica-Set Master
-REPLICAONSLAVE="yes"
+REPLICAONSLAVE="no"
 
 # Command to run before backups (uncomment to use)
 # PREBACKUP=""
@@ -268,6 +274,17 @@ if [ "$JOURNAL" = "yes" ]
   then
   OPT="$OPT --journal"
 fi
+
+if [ "$DBNAME" ]
+  then
+  OPT="$OPT --db=$DBNAME"
+fi
+
+if [ "$COLLECTIONNAME" ]
+  then
+  OPT="$OPT --collection=$COLLECTIONNAME"
+fi
+
 
 # Create required directories
 if [ ! -e "$BACKUPDIR" ]		# Check Backup Directory exists.
