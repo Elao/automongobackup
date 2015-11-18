@@ -5,3 +5,5 @@ This is a very barebones port of the "AutoMySQLBackup":http://sourceforge.net/pr
 h2. License
 
 This is released under GPL version 2.
+
+!https://badges.gitter.im/Join%20Chat.svg(Join the chat at https://gitter.im/Elao/automongobackup)!:https://gitter.im/Elao/automongobackup?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge
